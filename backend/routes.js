@@ -109,8 +109,8 @@ var returnRouter = function (io) {
                         socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
                         io.emit("socketsConnected", socketsConnected);
                         spotifyRespose = {
-                            itemName : body.item.name, author,
-                            itemArtists:body.item.artists[0].name, author,
+                            itemName : body.item.name,
+                            itemArtists:body.item.artists[0].name,
                             itemExternalUrl:body.item.external_urls.spotify
                         }
                         res.send(`<div>
