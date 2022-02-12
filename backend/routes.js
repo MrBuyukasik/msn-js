@@ -114,7 +114,6 @@ var returnRouter = function (io) {
                                 <h6>De: ${body.item.artists[0].name}</h6>
                                 <a href='${body.item.external_urls.spotify}' target="_blank" >Link: ${body.item.external_urls.spotify}</a>
                                 <a>${access_token}</a>
-                                <script>window.close()</script>
 
                             </div>`);
                     } else {
