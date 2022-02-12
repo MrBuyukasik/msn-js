@@ -102,7 +102,7 @@ var returnRouter = function (io) {
                 console.log("chegou no callback");
 
                 request.get(options, async function (error, response, body) {
-                    if (body.item.name) {
+                    if (body.item && body.item.name) {
                         socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
                         io.emit("socketsConnected", socketsConnected);
 
