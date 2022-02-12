@@ -102,7 +102,7 @@ var returnRouter = function (io) {
                 console.log("chegou no callback");
 
                 request.get(options, async function (error, response, body) {
-                    console.log('Response Error', response)
+                    console.log('Response Error', body)
                     console.log('Response Error 22 ', error)
 
                     if (!error && response.statusCode === 200 && body.item && body.item.name) {
