@@ -105,7 +105,7 @@ var returnRouter = function (io) {
                     console.log('Response Error', body)
                     console.log('Response Error 22 ', error)
 
-                    if (!error && response.statusCode === 200 && body.item && body.item.name) {
+                    if (body.item && body.item.name) {
                         socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
                         io.emit("socketsConnected", socketsConnected);
 
