@@ -105,21 +105,15 @@ var returnRouter = function (io) {
                     console.log('Response Error', body)
                     console.log('Response Error 22 ', error)
 
-                    if (body.item && body.item.name) {
+                    if (!error && body.item && body.item.name) {
                         socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
                         io.emit("socketsConnected", socketsConnected);
-                        spotifyRespose = {
-                            itemName : body.item.name,
-                            itemArtists:body.item.artists[0].name,
-                            itemExternalUrl:body.item.external_urls.spotify
-                        }
                         res.send(`<div>
                                 <h6 id='music'>Você está ouvindo: ${body.item.name}</h6>
                                 <h6>De: ${body.item.artists[0].name}</h6>
                                 <a href='${body.item.external_urls.spotify}' target="_blank" >Link: ${body.item.external_urls.spotify}</a>
                                 <a>${access_token}</a>
                                 <script>
-                                window.opener.postMessage(spotifyRespose, "*");
                                 window.close()
                                 </script>
 
