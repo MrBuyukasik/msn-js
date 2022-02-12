@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/msn-js/static/js/main.33653bfb.chunk.js",
-    "main.js.map": "/msn-js/static/js/main.33653bfb.chunk.js.map",
+    "main.js": "/msn-js/static/js/main.1714b37b.chunk.js",
+    "main.js.map": "/msn-js/static/js/main.1714b37b.chunk.js.map",
     "runtime-main.js": "/msn-js/static/js/runtime-main.16e9c247.js",
     "runtime-main.js.map": "/msn-js/static/js/runtime-main.16e9c247.js.map",
     "static/css/2.21050121.chunk.css": "/msn-js/static/css/2.21050121.chunk.css",
-    "static/js/2.68ca0fb9.chunk.js": "/msn-js/static/js/2.68ca0fb9.chunk.js",
-    "static/js/2.68ca0fb9.chunk.js.map": "/msn-js/static/js/2.68ca0fb9.chunk.js.map",
+    "static/js/2.ea802d04.chunk.js": "/msn-js/static/js/2.ea802d04.chunk.js",
+    "static/js/2.ea802d04.chunk.js.map": "/msn-js/static/js/2.ea802d04.chunk.js.map",
     "index.html": "/msn-js/index.html",
     "static/css/2.21050121.chunk.css.map": "/msn-js/static/css/2.21050121.chunk.css.map",
-    "static/js/2.68ca0fb9.chunk.js.LICENSE.txt": "/msn-js/static/js/2.68ca0fb9.chunk.js.LICENSE.txt",
+    "static/js/2.ea802d04.chunk.js.LICENSE.txt": "/msn-js/static/js/2.ea802d04.chunk.js.LICENSE.txt",
     "static/media/ad.e6792a08.png": "/msn-js/static/media/ad.e6792a08.png",
     "static/media/background-large-green.6b430d52.png": "/msn-js/static/media/background-large-green.6b430d52.png",
     "static/media/background-large-pink.06e03865.png": "/msn-js/static/media/background-large-pink.06e03865.png",
@@ -71,7 +71,7 @@
   "entrypoints": [
     "static/js/runtime-main.16e9c247.js",
     "static/css/2.21050121.chunk.css",
-    "static/js/2.68ca0fb9.chunk.js",
-    "static/js/main.33653bfb.chunk.js"
+    "static/js/2.ea802d04.chunk.js",
+    "static/js/main.1714b37b.chunk.js"
   ]
 }
