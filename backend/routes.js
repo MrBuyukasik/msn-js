@@ -95,9 +95,9 @@ var returnRouter = function (io) {
 
                 //use the access token to access the Spotify Web API
 
-                //clearInterval(repeat); //Limpa o repeat, basicamente limpa o ultimo interval feito, para que não fique alternando as musicas.
+                clearInterval(repeat); //Limpa o repeat, basicamente limpa o ultimo interval feito, para que não fique alternando as musicas.
 
-                // repeat = setInterval(() => {
+                repeat = setInterval(() => {
                 //Faz um interval para que quando a pessoa libere 1x, ele fique atualizando as musicas.
                 console.log("chegou no callback");
 
@@ -124,7 +124,7 @@ var returnRouter = function (io) {
                             </div>`);
                     }
                 });
-                // }, 5000);
+             }, 5000);
             } else {
                 res.redirect(
                     "/#" +
