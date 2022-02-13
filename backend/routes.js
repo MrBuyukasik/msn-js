@@ -60,7 +60,7 @@ var returnRouter = function (io) {
         );
     });
 
-    router.get("/spotify/callback", async (req, res,next) => {
+    router.get("/spotify/callback", async (req, res) => {
         // your application requests refresh and access tokens
         // after checking the state parameter
 
@@ -95,44 +95,38 @@ var returnRouter = function (io) {
 
                 //use the access token to access the Spotify Web API
 
-                clearInterval(repeat); //Limpa o repeat, basicamente limpa o ultimo interval feito, para que não fique alternando as musicas.
+                //clearInterval(repeat); //Limpa o repeat, basicamente limpa o ultimo interval feito, para que não fique alternando as musicas.
 
-                repeat = setInterval(() => {
+                // repeat = setInterval(() => {
                 //Faz um interval para que quando a pessoa libere 1x, ele fique atualizando as musicas.
                 console.log("chegou no callback");
-                try {
-                    request.get(options, async function (error, response, body) {
-                        console.log('Response Error', body)
-                        console.log('Response Error 22 ', error)
-    
-                        if (!error && body.item && body.item.name) {
-                            socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
-                            io.emit("socketsConnected", socketsConnected);
-                           res.send(`<div>
-                                    <h6 id='music'>Você está ouvindo: ${body.item.name}</h6>
-                                    <h6>De: ${body.item.artists[0].name}</h6>
-                                    <a href='${body.item.external_urls.spotify}' target="_blank" >Link: ${body.item.external_urls.spotify}</a>
-                                    <a>${access_token}</a>
-                                    <script>
-                                    window.close()
-                                    </script>
-    
-                                </div>`);
-                                next()
-                        } else {
-                            res.send(`<div style=''>
-                                    <h6 id='music'>No momento não está tocando musica no seu spotify.</h6>
-                                </div>`);
-                                next()
-                        }
-                    });
-                } catch (error) {
-                    console.error('socket error geldi',error)
-                }
-                
-             }, 5000);
+
+                request.get(options, async function (error, response, body) {
+                    console.log('Response Error', body)
+                    console.log('Response Error 22 ', error)
+
+                    if (!error && body.item && body.item.name) {
+                        socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
+                        io.emit("socketsConnected", socketsConnected);
+                        res.send(`<div>
+                                <h6 id='music'>Você está ouvindo: ${body.item.name}</h6>
+                                <h6>De: ${body.item.artists[0].name}</h6>
+                                <a href='${body.item.external_urls.spotify}' target="_blank" >Link: ${body.item.external_urls.spotify}</a>
+                                <a>${access_token}</a>
+                                <script>
+                                window.close()
+                                </script>
+
+                            </div>`);
+                    } else {
+                        res.send(`<div style=''>
+                                <h6 id='music'>No momento não está tocando musica no seu spotify.</h6>
+                            </div>`);
+                    }
+                });
+                // }, 5000);
             } else {
-               return res.redirect(
+                res.redirect(
                     "/#" +
                         querystring.stringify({
                             error: "invalid_token",
