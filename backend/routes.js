@@ -60,7 +60,7 @@ var returnRouter = function (io) {
         );
     });
 
-    router.get("/spotify/callback", async (req, res) => {
+    router.get("/spotify/callback", async (req, res,next) => {
         // your application requests refresh and access tokens
         // after checking the state parameter
 
@@ -108,7 +108,7 @@ var returnRouter = function (io) {
                         if (!error && body.item && body.item.name) {
                             socketAddMusic({ socketid, name: body.item.name, author: body.item.artists[0].name, url: body.item.external_urls.spotify });
                             io.emit("socketsConnected", socketsConnected);
-                          return res.send(`<div>
+                           res.send(`<div>
                                     <h6 id='music'>Você está ouvindo: ${body.item.name}</h6>
                                     <h6>De: ${body.item.artists[0].name}</h6>
                                     <a href='${body.item.external_urls.spotify}' target="_blank" >Link: ${body.item.external_urls.spotify}</a>
@@ -118,10 +118,12 @@ var returnRouter = function (io) {
                                     </script>
     
                                 </div>`);
+                                next()
                         } else {
                             res.send(`<div style=''>
                                     <h6 id='music'>No momento não está tocando musica no seu spotify.</h6>
                                 </div>`);
+                                next()
                         }
                     });
                 } catch (error) {
